@@ -1,0 +1,13 @@
+<section>
+    <ul class="nav nav-pills">
+        <li role="presentation" ng-class="{active: tab.isSet(1)}"><a href="javascript:void(0);" ng-click="tab.setActive(1)">Desc</a></li>
+        <li role="presentation" ng-class="{active: tab.isSet(2)}"><a href ="javascript:void(0);" ng-click="tab.setActive(2)">Additional Data</a></li>
+        <li role="presentation" ng-class="{active: tab.isSet(3)}"><a href="javascript:void(0);" ng-click="tab.setActive(3)">Revs</a></li>
+    </ul>
+    <div ng-show="tab.isSet(1)">{{car.description}}</div>
+    <div ng-show="tab.isSet(2)">{{car.additionalData}}</div>
+    <div class="row" ng-show="tab.isSet(3)" >
+        <review></review>
+    </div>
+
+</section>

@@ -1,0 +1,25 @@
+<ul>
+    <h4>Reviews</h4>
+    <li ng-repeat="rev in car.reviews">
+        <blockquote>
+            <strong>{{rev.title}}, {{rev.star}}</strong>
+            {{rev.description}}
+            <cite class="clearfix">—{{rev.author}}</cite>
+        </blockquote>
+    </li>
+</ul>
+<form name="reviewForm" ng-submit="revCtrl.addReview(car)" ng-controller="ReviewController as revCtrl">
+    <blockquote>
+        <strong>{{revCtrl.review.title}}, {{revCtrl.review.star}} </strong>
+        {{revCtrl.review.description}}
+        <cite class="clearfix">—{{revCtrl.review.author}}</cite>
+    </blockquote>
+    <input ng-model="revCtrl.review.title" placeholder="Title"/>
+    <input ng-model="revCtrl.review.description" placeholder="Desc"/>
+    <input ng-model="revCtrl.review.author" placeholder="author" type="email"/>
+    <select ng-model="revCtrl.review.star" ng-options="stars for stars in [1,2,3,4,5]">
+        <option value="">Rate</option>
+
+    </select>
+    <button type="submit">Add</button>
+</form>

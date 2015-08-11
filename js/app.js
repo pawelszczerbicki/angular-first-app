@@ -7,7 +7,7 @@
             author: "sec author",
             title: "sec title",
             description: "sec Desc",
-            star:4
+            star: 4
         }],
         description: "Description",
         additionalData: "data"
@@ -20,12 +20,12 @@
                 author: "cc sec author",
                 title: "cc sec title",
                 description: "cc sec Desc",
-                star:5
+                star: 5
             }],
             description: "CC long",
             additionalData: "CC data"
         }];
-    var app = angular.module("carApp", []);
+    var app = angular.module("carApp", ['directives']);
 
     app.controller("CarController", function () {
         this.cars = testData;
@@ -33,23 +33,10 @@
 
     app.controller("ReviewController", function () {
         this.review = {};
-        this.addReview = function(car){
+        this.addReview = function (car) {
             car.reviews.push(this.review);
             this.review = {};
         }
-    });
-
-    app.controller("TabsController", function () {
-        var self = this;
-        self.currentTab = 1;
-
-        this.isSet = function (tab) {
-            return self.currentTab === tab;
-        };
-
-        this.setActive = function (tab) {
-            return self.currentTab = tab;
-        };
     });
 
     app.controller("PhotoController", function () {
@@ -57,7 +44,7 @@
         this.setCurrent = function (elem) {
             this.current = elem ? elem : 0;
         };
-        this.currentPhotoUrl = function(car){
+        this.currentPhotoUrl = function (car) {
             return car.photos[current];
         }
     });
